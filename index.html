@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emerging Leaders Q1 2026 — 360° Review</title>
+<style>
+  :root {
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --amber-dark: #633806;
+    --amber-deep: #854F0B;
+    --teal-light: #E1F5EE;
+    --teal-dark: #085041;
+    --purple-light: #EEEDFE;
+    --purple-dark: #3C3489;
+    --coral-light: #FAECE7;
+    --coral-dark: #712B13;
+    --bg: #ffffff;
+    --bg2: #f7f6f3;
+    --border: rgba(0,0,0,0.12);
+    --border2: rgba(0,0,0,0.22);
+    --text: #1a1a18;
+    --text2: #5a5955;
+    --text3: #9a9891;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg2);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 0.5px solid var(--border);
+  }
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .logo-mark {
+    width: 36px; height: 36px;
+    background: var(--amber-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-mark svg { width: 20px; height: 20px; }
+  .logo-text { font-size: 14px; font-weight: 600; color: var(--text); }
+  .logo-sub { font-size: 12px; color: var(--text2); }
+  h1 { font-size: 24px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .subtitle { font-size: 14px; color: var(--text2); margin-bottom: 1.5rem; }
+  .prog-wrap { margin-bottom: 1.5rem; }
+  .prog-bar { height: 5px; background: var(--border); border-radius: 3px; }
+  .prog-fill { height: 5px; background: var(--amber); border-radius: 3px; transition: width 0.4s ease; }
+  .prog-label { font-size: 12px; color: var(--text3); margin-top: 6px; }
+  .phase-tabs { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .phase-tab {
+    padding: 5px 12px; border-radius: 20px; font-size: 12px;
+    border: 0.5px solid var(--border); background: var(--bg);
+    color: var(--text3); cursor: default; white-space: nowrap;
+  }
+  .phase-tab.done { background: var(--bg2); color: var(--text2); }
+  .phase-tab.active { background: var(--amber-light); border-color: var(--amber); color: var(--amber-dark); font-weight: 600; }
+  .sec-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.07em;
+    color: var(--text3); text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .card {
+    background: var(--bg); border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: 16px; font-weight: 600; color: var(--text);
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 11px; padding: 2px 9px; border-radius: 20px;
+    background: var(--amber-light); color: var(--amber-dark); font-weight: 600;
+  }
+  .qb { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 0.5px solid var(--border); }
+  .qt { font-size: 14px; color: var(--text); margin-bottom: 10px; line-height: 1.55; font-weight: 500; }
+  .qn { font-size: 12px; color: var(--text3); margin-bottom: 10px; }
+  .rrow { display: flex; gap: 6px; flex-wrap: wrap; }
+  .rrow button {
+    width: 38px; height: 38px;
+    border: 0.5px solid var(--border2); border-radius: var(--radius);
+    background: var(--bg); cursor: pointer; font-size: 13px; font-weight: 600;
+    color: var(--text2); transition: all 0.15s;
+  }
+  .rrow button:hover { background: var(--bg2); }
+  .rrow button.sel { background: var(--amber-light); border-color: var(--amber); color: var(--amber-dark); }
+  .rlabels { display: flex; justify-content: space-between; margin-top: 5px; }
+  .rlabels span { font-size: 11px; color: var(--text3); }
+  textarea, input[type=text] {
+    width: 100%; border: 0.5px solid var(--border);
+    border-radius: var(--radius); padding: 10px 12px;
+    font-size: 13px; color: var(--text); background: var(--bg);
+    resize: vertical; min-height: 76px; font-family: inherit; line-height: 1.5;
+  }
+  textarea::placeholder, input[type=text]::placeholder { color: var(--text3); }
+  textarea:focus, input[type=text]:focus { outline: none; border-color: var(--amber); }
+  input[type=text] { min-height: unset; height: 38px; resize: none; }
+  .anon-row { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+  .tog { position: relative; width: 38px; height: 22px; cursor: pointer; flex-shrink: 0; }
+  .tog input { opacity: 0; width: 0; height: 0; }
+  .tog-sl { position: absolute; inset: 0; background: var(--border2); border-radius: 20px; transition: 0.2s; }
+  .tog input:checked + .tog-sl { background: var(--amber); }
+  .tog-sl:before { content: ""; position: absolute; width: 16px; height: 16px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: 0.2s; }
+  .tog input:checked + .tog-sl:before { transform: translateX(16px); }
+  .anon-lbl { font-size: 13px; color: var(--text2); }
+  .nav { display: flex; gap: 8px; margin-top: 1.75rem; align-items: center; flex-wrap: wrap; }
+  .btn {
+    padding: 9px 20px; border: 0.5px solid var(--border2);
+    border-radius: var(--radius); background: var(--bg);
+    font-size: 13px; font-weight: 600; color: var(--text);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .btn:hover { background: var(--bg2); }
+  .btn.pri { background: var(--amber); border-color: var(--amber); color: #fff; }
+  .btn.pri:hover { background: var(--amber-deep); border-color: var(--amber-deep); }
+  .btn.ghost { color: var(--text2); border-color: var(--border); }
+  .sc { font-size: 13px; color: var(--text3); margin-left: auto; }
+  .hidden { display: none; }
+  .done-screen { text-align: center; padding: 3rem 1rem; }
+  .done-screen h2 { font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .done-screen p { font-size: 14px; color: var(--text2); margin-bottom: 1.5rem; line-height: 1.6; }
+  .person-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 8px; margin-bottom: 1rem; }
+  .person-card {
+    border: 0.5px solid var(--border); border-radius: var(--radius-lg);
+    padding: 12px 10px; cursor: pointer; transition: all 0.15s;
+    background: var(--bg); display: flex; flex-direction: column;
+    align-items: center; gap: 6px; text-align: center;
+  }
+  .person-card:hover { background: var(--bg2); }
+  .person-card.selected { border-color: var(--amber); background: var(--amber-light); }
+  .person-card.selected .pc-name { color: var(--amber-dark); }
+  .person-card.selected .pc-role { color: var(--amber-deep); }
+  .person-card.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+  .avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+  }
+  .pc-name { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.3; }
+  .pc-role { font-size: 11px; color: var(--text3); line-height: 1.3; }
+  .peer-check {
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 1.5px solid var(--border2);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .person-card.selected .peer-check { background: var(--amber); border-color: var(--amber); }
+  .sel-summary { font-size: 13px; color: var(--text2); margin-bottom: 1rem; min-height: 20px; }
+  .sel-summary strong { color: var(--text); }
+  .manager-chip {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 16px; border-radius: 20px;
+    background: var(--amber-light); border: 0.5px solid var(--amber);
+    font-size: 13px; color: var(--amber-dark); font-weight: 600;
+  }
+  .reviewing-banner {
+    background: var(--bg2); border-radius: var(--radius);
+    padding: 10px 14px; font-size: 13px; color: var(--text2);
+    margin-bottom: 1.25rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .reviewing-banner strong { color: var(--text); }
+  .team-group-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    color: var(--text3); text-transform: uppercase;
+    margin: 1rem 0 6px; border-top: 0.5px solid var(--border);
+    padding-top: 1rem;
+  }
+  .team-group-label:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+  .err { font-size: 12px; color: #A32D2D; margin-top: 6px; min-height: 16px; }
+  .check-icon svg { display: block; }
+  @media (max-width: 500px) {
+    .container { padding: 1.25rem; border-radius: 12px; }
+    h1 { font-size: 20px; }
+    .person-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo-bar">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="7" cy="13" rx="4" ry="5" fill="#BA7517" opacity="0.85" transform="rotate(-20 7 13)"/>
+        <ellipse cx="13" cy="13" rx="4" ry="5" fill="#993556" opacity="0.85" transform="rotate(20 13 13)"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-text">Emerging Leaders</div>
+      <div class="logo-sub">Unlocking Human Potential</div>
+    </div>
+  </div>
+
+  <h1>Emerging Leaders Q1 2026</h1>
+  <p class="subtitle">360° quarterly review &nbsp;·&nbsp; All responses are confidential</p>
+
+  <div class="prog-wrap">
+    <div class="prog-bar"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+    <div class="prog-label" id="prog-label">Step 1 of 4 — Setup</div>
+  </div>
+
+  <div class="phase-tabs">
+    <div class="phase-tab active" id="tab-setup">Setup</div>
+    <div class="phase-tab" id="tab-manager">Manager review</div>
+    <div class="phase-tab" id="tab-peer1">Peer 1</div>
+    <div class="phase-tab" id="tab-peer2">Peer 2</div>
+    <div class="phase-tab" id="tab-done">Done</div>
+  </div>
+
+  <!-- SETUP -->
+  <div id="step-setup">
+    <div class="sec-label">Step 1 — Setup</div>
+
+    <div class="card">
+      <div class="card-title">Who are you?</div>
+      <div class="qb" style="margin-top:0.5rem;padding-top:1rem">
+        <div class="qt">Select your name so we can attribute your responses correctly.</div>
+        <div id="self-grid"></div>
+        <div class="err" id="self-err"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Your manager</div>
+      <div class="qb" style="margin-top:0.5rem;padding-top:1rem">
+        <div class="qt">Your review includes a section for your direct manager. Confirm who that is below.</div>
+        <div id="manager-display"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Select 2 peers to review <span class="badge">Choose exactly 2</span></div>
+      <div class="qb" style="margin-top:0.5rem;padding-top:1rem">
+        <div class="qt">Pick 2 colleagues you work closely with. You will complete a short review for each one.</div>
+        <div class="sel-summary" id="peer-summary">No peers selected yet</div>
+        <div id="peer-grid"></div>
+        <div class="err" id="peer-err"></div>
+      </div>
+    </div>
+
+    <div class="anon-row">
+      <label class="tog"><input type="checkbox" id="anon-tog" onchange="toggleAnon()"><div class="tog-sl"></div></label>
+      <span class="anon-lbl" id="anon-lbl">Submit with my name</span>
+    </div>
+
+    <div class="nav">
+      <button class="btn pri" onclick="startReviews()">Start reviews &rarr;</button>
+    </div>
+  </div>
+
+  <!-- MANAGER REVIEW -->
+  <div id="step-manager" class="hidden">
+    <div id="mgr-banner" class="reviewing-banner"></div>
+    <div id="mgr-sections"></div>
+    <div class="nav">
+      <button class="btn ghost" onclick="showPhase('setup')">&#8592; Back</button>
+      <button class="btn pri" onclick="showPhase('peer1')">Next: Peer 1 &rarr;</button>
+      <span class="sc">Manager review</span>
+    </div>
+  </div>
+
+  <!-- PEER 1 -->
+  <div id="step-peer1" class="hidden">
+    <div id="p1-banner" class="reviewing-banner"></div>
+    <div id="p1-sections"></div>
+    <div class="nav">
+      <button class="btn ghost" onclick="showPhase('manager')">&#8592; Back</button>
+      <button class="btn pri" onclick="showPhase('peer2')">Next: Peer 2 &rarr;</button>
+      <span class="sc">Peer 1 of 2</span>
+    </div>
+  </div>
+
+  <!-- PEER 2 -->
+  <div id="step-peer2" class="hidden">
+    <div id="p2-banner" class="reviewing-banner"></div>
+    <div id="p2-sections"></div>
+    <div class="nav">
+      <button class="btn ghost" onclick="showPhase('peer1')">&#8592; Back</button>
+      <button class="btn pri" onclick="submitAll()">Submit all reviews</button>
+      <span class="sc">Peer 2 of 2</span>
+    </div>
+  </div>
+
+  <!-- DONE -->
+  <div id="step-done" class="hidden done-screen">
+    <div style="width:56px;height:56px;border-radius:50%;background:var(--amber-light);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#BA7517" stroke-width="2.5"><path d="M22 7L11 20l-5-5"/></svg>
+    </div>
+    <h2>All reviews submitted</h2>
+    <p id="done-msg">Your responses have been recorded.<br>Steve will share anonymised results once all team submissions are in.</p>
+    <p style="font-size:13px;color:var(--text3);margin-top:1rem">Thank you for helping build a healthier, more accountable Emerging Leaders.</p>
+  </div>
+
+</div>
+
+<script>
+const TEAM = [
+  {name:'Terry Kiruki',role:'Country Lead',team:'Programs',initials:'TK',color:'#E1F5EE',tc:'#085041',isManager:true},
+  {name:'Wangui Kimaru',role:'Snr. Program Manager',team:'Programs',initials:'WK',color:'#EEEDFE',tc:'#3C3489'},
+  {name:'Tonny Njeru',role:'MEAL Coordinator',team:'Programs',initials:'TN',color:'#EEEDFE',tc:'#3C3489'},
+  {name:'Cynthia Omondi',role:'Finance & Admin Manager',team:'Support',initials:'CO',color:'#FAEEDA',tc:'#633806'},
+  {name:'Frankline Maramba',role:'Admin & Ops Officer',team:'Support',initials:'FM',color:'#FAEEDA',tc:'#633806'},
+  {name:'John Kioko',role:'Finance & Admin Associate',team:'Support',initials:'JK',color:'#FAEEDA',tc:'#633806'},
+  {name:'Anna Navua',role:'TL&D Lead',team:'Training',initials:'AN',color:'#FAECE7',tc:'#712B13'},
+  {name:'Peter Waithaka',role:'Principle Trainer',team:'Training',initials:'PW',color:'#FAECE7',tc:'#712B13'},
+  {name:'Shelmith Wairimu',role:'Trainer',team:'Training',initials:'SW',color:'#FAECE7',tc:'#712B13'},
+  {name:'Santana Sidaka',role:'Trainer',team:'Training',initials:'SS',color:'#FAECE7',tc:'#712B13'},
+  {name:'Campbel Ligami',role:'Associate Trainer',team:'Training',initials:'CL',color:'#FAECE7',tc:'#712B13'},
+  {name:'Faiza Achieng',role:'Associate Trainer',team:'Training',initials:'FA',color:'#FAECE7',tc:'#712B13'},
+  {name:'Stephen Aduda',role:'Associate Trainer',team:'Training',initials:'SA',color:'#FAECE7',tc:'#712B13'},
+  {name:'Josephine Ademba',role:'Associate Trainer',team:'Training',initials:'JA',color:'#FAECE7',tc:'#712B13'},
+  {name:'Rajab Juma',role:'Associate Trainer',team:'Training',initials:'RJ',color:'#FAECE7',tc:'#712B13'},
+];
+
+const SECTIONS = [
+  {
+    title:'Psychological safety', badge:'Environment',
+    qs:[
+      {mgr:'My manager creates an environment where I feel safe to speak up, admit mistakes, or share concerns without fear of blame.',peer:'This person creates an environment where I feel comfortable sharing honest opinions.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+      {mgr:'When I raise a difficult topic with my manager, they respond with openness rather than defensiveness.',peer:'When I raise concerns with this person, they respond with openness rather than defensiveness.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+    ],
+    open:'What would make it easier for you to speak honestly in this relationship?'
+  },
+  {
+    title:'Clarity & empowerment', badge:'Direction',
+    qs:[
+      {mgr:'My manager ensures I have the information, context, and resources I need to do my job well.',peer:'This person communicates clearly and ensures shared work is well understood.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+      {mgr:'My manager communicates expectations clearly and in a way I can act on.',peer:'When we collaborate, expectations between us are clear and easy to work with.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+      {mgr:'My manager trusts me to make decisions within my role without unnecessary approval loops.',peer:'This person respects my ownership of my work and does not overstep into my responsibilities.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+    ],
+    open:'Describe a moment where you felt especially clear or especially lost in this working relationship. What made the difference?'
+  },
+  {
+    title:'Kindness & relational health', badge:'Culture',
+    qs:[
+      {mgr:'My manager makes me feel genuinely seen and valued as a person — not just as a function.',peer:'This person treats me with genuine kindness and respect in day-to-day interactions.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+      {mgr:"My manager's interactions feel respectful and human — even in stressful moments.",peer:'Even in disagreements or under pressure, this person remains respectful and human.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+    ],
+    open:"Is there anything about how you are treated in this relationship that you'd want to see change?"
+  },
+  {
+    title:'Feedback culture', badge:'Growth',
+    qs:[
+      {mgr:'My manager gives me feedback that is specific, timely, and genuinely useful for my growth.',peer:'This person gives useful, constructive feedback when it matters.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+      {mgr:'When feedback is given to my manager, they receive it with openness and act on it.',peer:'This person receives feedback gracefully and acts on it.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+    ],
+    open:'What kind of feedback from this person would most help you grow right now — and are you getting it?'
+  },
+  {
+    title:'Accountability', badge:'Integrity',
+    qs:[
+      {mgr:'My manager follows through on commitments and holds themselves to the same standard they set for the team.',peer:'This person follows through on commitments and can be counted on.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+      {mgr:'When things go wrong, my manager owns responsibility openly rather than deflecting.',peer:'When things go wrong in shared work, this person owns their part without deflecting.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+    ],
+    open:'Is there an area where accountability feels uneven in this relationship? What would fairness look like?'
+  },
+  {
+    title:'Innovation & autonomy', badge:'Agency',
+    qs:[
+      {mgr:'My manager encourages me to suggest new ideas and challenge the status quo without fear of pushback.',peer:'This person encourages creative thinking and welcomes different approaches.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+      {mgr:'My manager gives me enough freedom in how I work — I do not feel micromanaged.',peer:'Working with this person feels collaborative and balanced — not controlling.',max:5,l0:'Strongly disagree',l1:'Strongly agree'},
+    ],
+    open:"Is there an idea or approach you've been holding back? What stopped you from raising it?"
+  },
+  {
+    title:'Overall reflection', badge:'Forward-looking',
+    qs:[
+      {mgr:"Overall, how would you rate this person's impact on your ability to do your best work?",peer:"Overall, how would you rate this person's impact on your ability to do your best work?",max:10,l0:'Very low impact',l1:'Very high impact'},
+    ],
+    open2:"What is one thing this person does exceptionally well that you'd want them to keep doing?",
+    open:"What is one change from this person that would most improve your experience working here?"
+  },
+];
+
+let selfIndex = null;
+let selectedPeers = [];
+let currentPhase = 'setup';
+let built = {};
+
+function renderSelfGrid() {
+  const g = document.getElementById('self-grid');
+  g.innerHTML = '';
+  const groups = {};
+  TEAM.forEach((p, i) => {
+    if (!groups[p.team]) groups[p.team] = [];
+    groups[p.team].push({ p, i });
+  });
+  Object.entries(groups).forEach(([team, members]) => {
+    const lbl = document.createElement('div');
+    lbl.className = 'team-group-label';
+    lbl.textContent = team + ' team';
+    g.appendChild(lbl);
+    const grid = document.createElement('div');
+    grid.className = 'person-grid';
+    members.forEach(({ p, i }) => {
+      const d = document.createElement('div');
+      d.className = 'person-card' + (selfIndex === i ? ' selected' : '');
+      d.innerHTML = `<div class="avatar" style="background:${p.color};color:${p.tc}">${p.initials}</div><div class="pc-name">${p.name}</div><div class="pc-role">${p.role}</div>`;
+      d.onclick = () => { selfIndex = i; renderSelfGrid(); renderManagerDisplay(); renderPeerGrid(); };
+      grid.appendChild(d);
+    });
+    g.appendChild(grid);
+  });
+}
+
+function renderManagerDisplay() {
+  const el = document.getElementById('manager-display');
+  const mgr = TEAM.find(p => p.isManager);
+  if (!mgr) { el.innerHTML = ''; return; }
+  el.innerHTML = `<div class="manager-chip"><div class="avatar" style="width:32px;height:32px;font-size:11px;background:${mgr.color};color:${mgr.tc}">${mgr.initials}</div><div><div style="font-size:13px;font-weight:600">${mgr.name}</div><div style="font-size:11px;opacity:0.75">${mgr.role}</div></div></div>`;
+}
+
+function renderPeerGrid() {
+  const g = document.getElementById('peer-grid');
+  g.innerHTML = '';
+  const groups = {};
+  TEAM.forEach((p, i) => {
+    if (i === selfIndex || p.isManager) return;
+    if (!groups[p.team]) groups[p.team] = [];
+    groups[p.team].push({ p, i });
+  });
+  Object.entries(groups).forEach(([team, members]) => {
+    const lbl = document.createElement('div');
+    lbl.className = 'team-group-label';
+    lbl.textContent = team + ' team';
+    g.appendChild(lbl);
+    const grid = document.createElement('div');
+    grid.className = 'person-grid';
+    members.forEach(({ p, i }) => {
+      const isSel = selectedPeers.includes(i);
+      const isDisabled = !isSel && selectedPeers.length >= 2;
+      const d = document.createElement('div');
+      d.className = 'person-card' + (isSel ? ' selected' : '') + (isDisabled ? ' disabled' : '');
+      d.innerHTML = `<div class="avatar" style="background:${p.color};color:${p.tc}">${p.initials}</div><div class="pc-name">${p.name}</div><div class="pc-role">${p.role}</div><div class="peer-check">${isSel ? '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 2.5"/></svg>' : ''}</div>`;
+      if (!isDisabled) {
+        d.onclick = () => {
+          if (isSel) { selectedPeers = selectedPeers.filter(x => x !== i); }
+          else if (selectedPeers.length < 2) { selectedPeers.push(i); }
+          renderPeerGrid();
+          updatePeerSummary();
+        };
+      }
+      grid.appendChild(d);
+    });
+    g.appendChild(grid);
+  });
+}
+
+function updatePeerSummary() {
+  const el = document.getElementById('peer-summary');
+  if (!selectedPeers.length) { el.innerHTML = 'No peers selected yet'; }
+  else if (selectedPeers.length === 1) { el.innerHTML = `<strong>${TEAM[selectedPeers[0]].name}</strong> selected &nbsp;&middot;&nbsp; pick 1 more`; }
+  else { el.innerHTML = `<strong>${TEAM[selectedPeers[0]].name}</strong> and <strong>${TEAM[selectedPeers[1]].name}</strong> selected`; }
+}
+
+function toggleAnon() {
+  const on = document.getElementById('anon-tog').checked;
+  document.getElementById('anon-lbl').textContent = on ? 'Submit anonymously' : 'Submit with my name';
+}
+
+function startReviews() {
+  document.getElementById('self-err').textContent = '';
+  document.getElementById('peer-err').textContent = '';
+  if (selfIndex === null) { document.getElementById('self-err').textContent = 'Please select yourself to continue.'; return; }
+  if (selectedPeers.length < 2) { document.getElementById('peer-err').textContent = 'Please select exactly 2 peers to continue.'; return; }
+  showPhase('manager');
+}
+
+function showPhase(phase) {
+  ['setup', 'manager', 'peer1', 'peer2', 'done'].forEach(p => {
+    document.getElementById('step-' + p).classList.toggle('hidden', p !== phase);
+  });
+  currentPhase = phase;
+  updateTabs();
+  updateProgress();
+  if (phase === 'manager' && !built.manager) { buildSections('mgr-sections', 'mgr-banner', TEAM.find(p => p.isManager), 'mgr'); built.manager = true; }
+  if (phase === 'peer1' && !built.peer1) { buildSections('p1-sections', 'p1-banner', TEAM[selectedPeers[0]], 'p1'); built.peer1 = true; }
+  if (phase === 'peer2' && !built.peer2) { buildSections('p2-sections', 'p2-banner', TEAM[selectedPeers[1]], 'p2'); built.peer2 = true; }
+  window.scrollTo(0, 0);
+}
+
+function updateTabs() {
+  const order = ['setup', 'manager', 'peer1', 'peer2', 'done'];
+  const ci = order.indexOf(currentPhase);
+  order.forEach((p, i) => {
+    const t = document.getElementById('tab-' + p);
+    if (t) t.className = 'phase-tab' + (i < ci ? ' done' : i === ci ? ' active' : '');
+  });
+}
+
+function updateProgress() {
+  const map = { setup: 2, manager: 30, peer1: 62, peer2: 88, done: 100 };
+  const labels = { setup: 'Step 1 of 4 — Setup', manager: 'Step 2 of 4 — Manager review', peer1: 'Step 3 of 4 — Peer 1 review', peer2: 'Step 4 of 4 — Peer 2 review', done: 'Complete' };
+  document.getElementById('prog').style.width = (map[currentPhase] || 0) + '%';
+  document.getElementById('prog-label').textContent = labels[currentPhase] || '';
+}
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyS-HyhIZ8VDeR5DxT6hgtqg0bxaUXN8FjTKkaNleBF6TRekNoC6eLBPe73ZqFMtwjA/exec";
+
+function submitAll() {
+  const self = selfIndex !== null ? TEAM[selfIndex].name : "Unknown";
+  const anon = document.getElementById('anon-tog').checked;
+
+  let collected = [];
+
+  // Collect all rating scores
+  document.querySelectorAll('.rrow').forEach((row, index) => {
+    const selected = row.querySelector('.sel');
+    if (selected) {
+      collected.push({
+        reviewer: anon ? "Anonymous" : self,
+        anonymous: anon,
+        questionId: "rating_" + index,
+        score: selected.textContent,
+        comment: ""
+      });
+    }
+  });
+
+  // Collect all text responses
+  document.querySelectorAll('textarea').forEach((t, index) => {
+    if (t.value.trim() !== "") {
+      collected.push({
+        reviewer: anon ? "Anonymous" : self,
+        anonymous: anon,
+        questionId: "text_" + index,
+        score: "",
+        comment: t.value
+      });
+    }
+  });
+
+  // Send to Google Sheets
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify(collected),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.json())
+  .then(() => {
+    showPhase('done');
+  })
+  .catch(err => {
+    alert("Submission failed. Check connection.");
+    console.error(err);
+  });
+}
+
+function buildSections(containerId, bannerId, person, prefix) {
+  if (!person) return;
+  const banner = document.getElementById(bannerId);
+  banner.innerHTML = `<div class="avatar" style="width:30px;height:30px;font-size:11px;background:${person.color};color:${person.tc}">${person.initials}</div><span>Reviewing <strong>${person.name}</strong> &nbsp;&middot;&nbsp; ${person.role}</span>`;
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  const isMgr = !!person.isManager;
+  SECTIONS.forEach((sec, si) => {
+    const div = document.createElement('div');
+    div.style.marginBottom = '1rem';
+    let html = `<div class="sec-label">Section ${si + 1} of ${SECTIONS.length}</div><div class="card"><div class="card-title">${sec.title} <span class="badge">${sec.badge}</span></div>`;
+    sec.qs.forEach((q, qi) => {
+      const qid = `${prefix}-s${si}-q${qi}`;
+      const txt = isMgr ? q.mgr : q.peer;
+      html += `<div class="qb"><div class="qt">${txt}</div><div class="qn">1 = ${q.l0.toLowerCase()} &nbsp;&middot;&nbsp; ${q.max} = ${q.l1.toLowerCase()}</div><div class="rrow" id="${qid}"></div><div class="rlabels"><span>${q.l0}</span><span>${q.l1}</span></div></div>`;
+    });
+    if (sec.open2) {
+      html += `<div class="qb"><div class="qt">${sec.open2}</div><textarea placeholder="Optional — what should they keep doing?"></textarea></div>`;
+    }
+    html += `<div class="qb"><div class="qt">${sec.open}</div><textarea placeholder="Optional — be as direct as you like..."></textarea></div></div>`;
+    div.innerHTML = html;
+    container.appendChild(div);
+    sec.qs.forEach((q, qi) => {
+      const row = document.getElementById(`${prefix}-s${si}-q${qi}`);
+      if (!row) return;
+      for (let v = 1; v <= q.max; v++) {
+        const b = document.createElement('button');
+        b.textContent = v;
+        b.onclick = () => { row.querySelectorAll('button').forEach(x => x.classList.remove('sel')); b.classList.add('sel'); };
+        row.appendChild(b);
+      }
+    });
+  });
+}
+
+renderSelfGrid();
+renderManagerDisplay();
+renderPeerGrid();
+</script>
+</body>
+</html>
